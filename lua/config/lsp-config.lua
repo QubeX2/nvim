@@ -13,7 +13,7 @@ local configs = require('lspconfig/configs')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 lspconfig.emmet_ls.setup({
     capabilities = capabilities,
-    filetypes = { "css", "html", "php", "javascript", "vue", "scss", "less", "typescript", "svelte" },
+    filetypes = { "css", "html", "php", "javascript", "javascriptreact", "vue", "scss", "less", "typescript", "svelte" },
 })
 
 local cmp = require('cmp')
