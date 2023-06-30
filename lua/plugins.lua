@@ -46,6 +46,7 @@ return {
     -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
     },
     -- Language Support
     {
@@ -58,6 +59,10 @@ return {
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
             -- Autocompletion
+            {'mattn/emmet-vim'},
+            {'roobert/tailwindcss-colorizer-cmp.nvim'},
+            {'hrsh7th/vim-vsnip'},
+            {'hrsh7th/cmp-vsnip'},
             {'hrsh7th/nvim-cmp'},         -- Required
             {'hrsh7th/cmp-nvim-lsp'},     -- Required
             {'hrsh7th/cmp-buffer'},       -- Optional
