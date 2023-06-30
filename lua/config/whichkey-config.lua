@@ -79,12 +79,13 @@ local opts = {
 }
 
 local mappings = {
-    ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["k"] = { "<cmd>bdelete<CR>", "Kill Buffer" },  -- Close current file
-    ["p"] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
-    ["q"] = { "<cmd>wqall!<CR>", "Quit" }, -- Quit Neovim after saving the file
-    ["w"] = { "<cmd>w!<CR>", "Save" }, -- Save current file
-    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    ['a'] = { "<cmd>Alpha<cr>", "Alpha" },
+    ['k'] = { "<cmd>bdelete<CR>", "Kill Buffer" },  -- Close current file
+    ['p'] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
+    ['q'] = { "<cmd>wqall!<CR>", "Quit" }, -- Quit Neovim after saving the file
+    ['w'] = { "<cmd>w!<CR>", "Save" }, -- Save current file
+    ['e'] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    ['y'] = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
 
     -- Telescope
     f = {
