@@ -7,7 +7,7 @@ end
 
 
 local actions = require("telescope.actions")
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -83,19 +83,13 @@ require('telescope').setup{
     }
   },
   pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_ key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
+        fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true,
+        }
   }
 }
+
+require('telescope').load_extension('fzy_native')

@@ -85,7 +85,7 @@ local mappings = {
     ['q'] = { "<cmd>wqall!<CR>", "Quit" }, -- Quit Neovim after saving the file
     ['w'] = { "<cmd>w!<CR>", "Save" }, -- Save current file
     ['e'] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    ['y'] = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
+    ['o'] = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
 
     -- Telescope
     f = {

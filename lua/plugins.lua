@@ -57,7 +57,11 @@ return {
     {
         'nvim-telescope/telescope.nvim',
         lazy = true,
-        dependencies = 'nvim-lua/plenary.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'BurntSushi/ripgrep',
+            'nvim-telescope/telescope-fzy-native.nvim'
+        },
     },
     -- Alpha
     {
@@ -69,7 +73,7 @@ return {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
     },
-    -- Language Support
+    -- LSP 
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -112,5 +116,12 @@ return {
             require('symbols-outline').setup()
         end,
     },
+    -- Colorizer Color Codes
+    {
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require('colorizer').setup()
+        end,
+    }
 
 }
