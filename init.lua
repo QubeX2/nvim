@@ -28,14 +28,10 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup('plugins')
 
 require('config.whichkey-config')
-require('config.bufferline-config')
 require('config.lualine-config')
-require('config.hop-config')
 require('config.nvimtree-config')
 require('config.telescope-config')
 require('config.alpha-config')
 require('config.treesitter-config')
 require('config.lsp-config')
 require('config.autopairs-config')
-
-vim.cmd[[colorscheme tokyonight-night]]

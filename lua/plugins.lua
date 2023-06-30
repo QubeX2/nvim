@@ -8,6 +8,19 @@ return {
     {
         'akinsho/bufferline.nvim',
         dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            vim.opt.termguicolors = true
+
+            require('bufferline').setup {
+                options = {
+                    hover = {
+                        enabled = true,
+                        delay = 150,
+                        reveal = { 'close' }
+                    }
+                }
+            } 
+        end,
     },
     -- Colorscheme
     {
@@ -15,6 +28,9 @@ return {
         lay = false,
         priority = 1000,
         opts = {},
+        config = function()
+            vim.cmd[[colorscheme tokyonight-night]]
+        end
     },
     -- Lualine
     {
@@ -24,7 +40,12 @@ return {
     -- Hop
     {
         'phaazon/hop.nvim',
-        lazy = true,
+--         lazy = true,
+        config = function()
+            require('hop').setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
+            vim.api.nvim_set_keymap('', 'f', "<cmd>lua require('hop').hint_char1()<cr>", {})
+            vim.api.nvim_set_keymap('n', 't', "<cmd>HopPattern<CR>", {noremap = true}) 
+        end,
     },
     -- NvimTree
     {
@@ -79,5 +100,11 @@ return {
     {
         'windwp/nvim-autopairs',
     },
+    -- Php Plugins
+    'StanAngeloff/php.vim',
+    'jwalton512/vim-blade',
+    'noahfrederick/vim-laravel',
+    'tpope/vim-projectionist',
+    'noahfrederick/vim-composer',
 
 }
