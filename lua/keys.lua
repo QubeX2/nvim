@@ -12,7 +12,11 @@ map('', '<up>', '<nop>', opts)
 map('', '<down>', '<nop>', opts)
 map('', '<left>', '<nop>', opts)
 map('', '<right>', '<nop>', opts)
--- insert --
+map('i', '<up>', '<nop>', opts)
+map('i', '<down>', '<nop>', opts)
+map('i', '<left>', '<nop>', opts)
+map('i', '<right>', '<nop>', opts)
+-- inisert --
 map('i', 'jk', '<esc>', opts)
 map('i', 'kj', '<esc>', opts)
 map('v', 'jk', '<esc>', opts)
