@@ -18,7 +18,6 @@ map('i', '<left>', '<nop>', opts)
 map('i', '<right>', '<nop>', opts)
 -- inisert --
 map('i', 'jk', '<esc>', opts)
-map('i', 'kj', '<esc>', opts)
 map('n', 'ö', ':', {})
 map('v', 'ö', ':', {})
 map('n', 'ä', '$', {})
