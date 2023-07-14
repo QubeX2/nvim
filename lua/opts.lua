@@ -30,9 +30,9 @@ o.smartcase = true             -- bool: Override ignorecase if search contains c
 o.incsearch = true             -- bool: Use incremental search
 o.hlsearch = false             -- bool: Highlight search matches
 o.expandtab = true             -- bool: Use spaces instead of tabs
-o.shiftwidth = 4               -- num:  Size of an indent
-o.softtabstop = 4              -- num:  Number of spaces tabs count for in insert mode
-o.tabstop = 4                  -- num:  Number of spaces tabs count for
+o.shiftwidth = 2               -- num:  Size of an indent
+o.softtabstop = 2              -- num:  Number of spaces tabs count for in insert mode
+o.tabstop = 2                  -- num:  Number of spaces tabs count for
 o.splitright = true            -- bool: Place new window to right of current one
 o.splitbelow = true            -- bool: Place new window below the current one
 
