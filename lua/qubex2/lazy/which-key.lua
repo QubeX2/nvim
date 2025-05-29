@@ -2,7 +2,7 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   dependencies = {
-    'mini.icons',
+    'echasnovski/mini.icons',
     'nvim-tree/nvim-web-devicons',
   },
   opts = {
