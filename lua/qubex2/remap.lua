@@ -5,7 +5,7 @@ wk.add({
     { '<leader>f', '<cmd>Telescope find_files<cr>', desc = 'Find File' },
     { '<leader>g', '<cmd>Telescope git_files<cr>', desc = 'Git Files' },
     { '<leader>b', '<cmd>Telescope buffers<cr>', desc = 'Buffers' },
-    { '<leader>t', '<cmd>NvimTreeOpen<cr>', desc = 'NvimTreeToggle' },
+    { '<leader>t', '<cmd>NvimTreeToggle<cr>', desc = 'Nvim Tree' },
     { '<leader>l', '<cmd>Lazy<cr>', desc = 'Lazy' },
     { '<leader>s', '<cmd>SymbolsOutline<cr>', desc = 'Symbols' },
 { '<leader>m', function() require('conform').format({ async = true }) end, desc = 'Format' },
