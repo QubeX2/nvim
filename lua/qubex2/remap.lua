@@ -27,6 +27,8 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<down>', '<Nop>', {})
 vim.keymap.set({ 'n', 'v', 'i' }, '<up>', '<Nop>', {})
 vim.keymap.set({ 'n', 'v', 'i' }, '<left>', '<Nop>', {})
 vim.keymap.set({ 'n', 'v', 'i' }, '<right>', '<Nop>', {})
+vim.keymap.set({ 'n' }, 'q', '<Nop>', {})
+vim.keymap.set({ 'n' }, '<leader>r', 'q', {})
 
 vim.keymap.set({ 'n' }, '<C-h>', '<C-w>h', {})
 vim.keymap.set({ 'n' }, '<C-j>', '<C-w>j', {})
