@@ -8,6 +8,7 @@ wk.add({
     { '<leader>t', '<cmd>NvimTreeToggle<cr>', desc = 'Nvim Tree' },
     { '<leader>l', '<cmd>Lazy<cr>', desc = 'Lazy' },
     { '<leader>s', '<cmd>SymbolsOutline<cr>', desc = 'Symbols' },
+    { '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', desc = 'Errors' },
 { '<leader>m', function() require('conform').format({ async = true }) end, desc = 'Format' },
   },
   {
