@@ -21,8 +21,10 @@ wk.add({
 vim.keymap.set({ 'n', 'v' }, 'ä', '$', {})
 vim.keymap.set({ 'n', 'v' }, 'å', '^', {})
 vim.keymap.set({ 'n', 'v' }, 'ö', ':', {})
-vim.keymap.set({ 'n', 'v' }, '<', '<<', {})
-vim.keymap.set({ 'n', 'v' }, '>', '>>', {})
+vim.keymap.set({ 'v' }, '<', '<gv', {})
+vim.keymap.set({ 'v' }, '>', '>gv', {})
+vim.keymap.set({ 'n' }, '<', '<<', {})
+vim.keymap.set({ 'n' }, '>', '>>', {})
 
 vim.keymap.set({ 'n', 'v', 'i' }, '<down>', '<Nop>', {})
 vim.keymap.set({ 'n', 'v', 'i' }, '<up>', '<Nop>', {})
