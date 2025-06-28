@@ -24,6 +24,24 @@ return {
       cmp_lsp.default_capabilities()
     )
 
+    require('lspconfig').clangd.setup({
+      cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+      init_options = {
+        fallbackFlags = { '-std=c++17' },
+      },
+      on_attach = function(client, bufnr)
+        -- Autoformat on save
+        if client.server_capabilities.documentFormattingProvider then
+          vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr,
+              callback = function() vim.lsp.buf.format({ bufnr = bufnr }) end,
+          })
+        end
+        -- Keymap: <leader>cf to run format manually
+        vim.keymap.set("n", "<leader>cf", function() vim.lsp.buf.format({ bufnr = bufnr }) end,
+          { buffer = bufnr, desc = "Format with clangd" })
+      end,
+    })
+
     require("fidget").setup({})
     require("mason").setup()
 
@@ -75,6 +93,7 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip', keyword_length = 2 },
         { name = 'buffer',  keyword_length = 3 },
+        { name = 'codecompanion' },
       },
       mapping = cmp.mapping.preset.insert({
         -- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
