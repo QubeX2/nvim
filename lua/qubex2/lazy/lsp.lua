@@ -33,7 +33,7 @@ return {
         -- Autoformat on save
         if client.server_capabilities.documentFormattingProvider then
           vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr,
-              callback = function() vim.lsp.buf.format({ bufnr = bufnr }) end,
+            callback = function() vim.lsp.buf.format({ bufnr = bufnr }) end,
           })
         end
         -- Keymap: <leader>cf to run format manually

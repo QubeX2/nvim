@@ -11,7 +11,7 @@ wk.add({
     { '<leader>l', '<cmd>Lazy<cr>', desc = 'Lazy' },
     { '<leader>s', '<cmd>SymbolsOutline<cr>', desc = 'Symbols' },
     { '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', desc = 'Errors' },
-{ '<leader>m', function() require('conform').format({ async = true }) end, desc = 'Format' },
+    { '<leader>m', function() require('conform').format({ async = true }) end, desc = 'Format' },
   },
   {
     mode = { "n", "v" }, -- NORMAL and VISUAL mode
@@ -22,6 +22,30 @@ wk.add({
     { "<leader>a", "<cmd>%bd|e#|bd#<cr>", desc = "Write" },
   }
 })
+
+-- In a keymaps.lua file or your main config
+
+local dap = require('dap')
+local dapui = require('dapui')
+
+-- General debugging
+vim.keymap.set('n', '<Leader>ds', function() dap.continue() end, { desc = 'DAP Start/Continue' })
+vim.keymap.set('n', '<Leader>dx', function() dap.terminate() end, { desc = 'DAP Terminate' })
+vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = 'DAP Open REPL' })
+
+-- Stepping
+vim.keymap.set('n', '<Leader>do', function() dap.step_over() end, { desc = 'DAP Step Over' })
+vim.keymap.set('n', '<Leader>di', function() dap.step_into() end, { desc = 'DAP Step Into' })
+vim.keymap.set('n', '<Leader>du', function() dap.step_out() end, { desc = 'DAP Step Out' })
+
+-- Breakpoints
+vim.keymap.set('n', '<Leader>db', function() dap.toggle_breakpoint() end, { desc = 'DAP Toggle Breakpoint' })
+vim.keymap.set('n', '<Leader>dB', function()
+  dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
+end, { desc = 'DAP Set Conditional Breakpoint' })
+
+-- UI
+vim.keymap.set('n', '<Leader>dt', function() dapui.toggle() end, { desc = 'DAP Toggle UI' })
 
 vim.keymap.set({ 'n', 'v' }, 'ä', '$', {})
 vim.keymap.set({ 'n', 'v' }, 'å', '^', {})
