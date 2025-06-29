@@ -7,6 +7,7 @@ wk.add({
     { '<leader>g', '<cmd>Telescope live_grep<cr>', desc = 'Search String' },
     { '<leader>b', '<cmd>Telescope buffers<cr>', desc = 'Buffers' },
     { '<leader>t', '<cmd>NvimTreeToggle<cr>', desc = 'Nvim Tree' },
+    { '<leader>x', '<cmd>bd<cr>', desc = 'Delete Buffer' },
     { '<leader>l', '<cmd>Lazy<cr>', desc = 'Lazy' },
     { '<leader>s', '<cmd>SymbolsOutline<cr>', desc = 'Symbols' },
     { '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', desc = 'Errors' },
@@ -14,6 +15,8 @@ wk.add({
   },
   {
     mode = { "n", "v" }, -- NORMAL and VISUAL mode
+    { '<leader>c', '<cmd>CodeCompanion<cr>', desc = 'Gemini' },
+    { '<leader>h', '<cmd>CodeCompanionChat<cr>', desc = 'Gemini Chat' },
     { "<leader>q", "<cmd>qa<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
     { "<leader>w", "<cmd>wa<cr>", desc = "Write" },
     { "<leader>a", "<cmd>%bd|e#|bd#<cr>", desc = "Write" },
@@ -43,8 +46,3 @@ vim.keymap.set({ 'n' }, '<C-l>', '<C-w>l', {})
 vim.keymap.set({ 'n', 'v' }, '<Tab>', '<cmd>bn<cr>', {})
 vim.keymap.set({ 'n', 'v' }, '<S-Tab>', '<cmd>bp<cr>', {})
 
--- local builtin = require('telescope.builtin', {})
--- vim.keymap.set({ 'n' }, '<leader>ff', builtin.find_files, {})
--- vim.keymap.set({ 'n' }, '<leader>fb', builtin.buffers, {})
--- vim.keymap.set({ 'n' }, '<leader>fg', builtin.live_grep, {})
--- vim.keymap.set({ 'n' }, '<C-p>', builtin.git_files, {})
