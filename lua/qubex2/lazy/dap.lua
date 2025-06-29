@@ -3,54 +3,46 @@ return {
   {
     'mfussenegger/nvim-dap',
     dependencies = {
-      -- Installs the debug adapters for you
-      { 'williamboman/mason.nvim' },
-      { 'jay-babu/mason-nvim-dap.nvim' },
-      -- A nice UI for DAP
-      {
-        'rcarriga/nvim-dap-ui',
-        dependencies = {'nvim-neotest/nvim-nio'},
-        -- Recommended: Configure UI to close when debugging session ends
+      { 'williamboman/mason.nvim'},
+      { 'jay-babu/mason-nvim-dap.nvim',
+        dependencies = {
+          'williamboman/mason.nvim',
+          'mfussenegger/nvim-dap',
+        },
         config = function()
-          local dap, dapui = require("dap"), require("dapui")
-          --
-          -- For C, C++, Rust
-          dap.adapters.cppdbg = {
-            id = 'cppdbg',
-            type = 'executable',
-            command = 'OpenDebugAD7', -- Find this path via :Mason
-          }
-
-          dap.configurations.cpp = {
-            {
-              name = "Launch file",
-              type = "cppdbg", -- MUST match the adapter name
-              request = "launch",
-              program = function()
-                -- Ask for the executable to debug
-                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-              end,
-              cwd = '${workspaceFolder}',
-              stopAtEntry = false,
-              -- If you are on linux, you might need to add this:
-              -- miDebuggerPath = '/usr/bin/gdb',
-            },
-          }
-
-          dap.listeners.after.event_terminated["dapui_config"] = function()
-            dapui.close()
-          end
-
-          dap.listeners.after.event_exited["dapui_config"] = function()
-            dapui.close()
-          end
-
           require("mason-nvim-dap").setup({
-            ensure_installed = { "cpptools" },
+            automatic_installation = true,
+            ensure_installed = { "codelldb", "cpptools" },
             handlers = {},
           });
+        end,
+        opts = {
+          hadlers = {},
+        },
+      },
+    },
+    {
+      'rcarriga/nvim-dap-ui',
+      dependencies = {
+        "mfussenegger/nvim-dap",
+        "nvim-neotest/nvim-nio",
+      },
+      config = function()
+        local dap, dapui = require("dap"), require("dapui")
+        dapui.setup({})
 
-        end },
-    }
+        dap.listeners.after.event_initialized.dapui_config = function()
+          dapui.open()
+        end
+        dap.listeners.before.event_terminated.dapui_config = function()
+          dapui.close()
+        end
+        dap.listeners.before.event_exited.dapui_config = function()
+          dapui.close()
+        end
+
+        require("qubex2.lazy.dap.cpptools");
+      end,
+    },
   },
 }
